@@ -178,7 +178,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 .cond-check:hover { border-color: var(--cranberry); background: var(--petal); }
 .cond-check input { accent-color: var(--cranberry); width: 15px; height: 15px; }
 
-/* ===== APP TOP BAR ===== */
 .app-topbar {
   position: sticky; top: 0; z-index: 50; background: #fff;
   border-bottom: 1px solid var(--border); display: flex; align-items: center;
@@ -274,7 +273,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 .countdown-badge.period { background: rgba(192,57,95,0.15); color: var(--mulberry); }
 .countdown-badge.calm { background: var(--petal); color: var(--muted); }
 
-/* ===== MOOD ===== */
 .mood-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 1rem; }
 .mood-grid.large { grid-template-columns: repeat(4,1fr); gap: 14px; }
 .mood-item { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 14px 8px; border-radius: 14px; border: 2px solid transparent; cursor: pointer; transition: all 0.2s; background: var(--petal); }
@@ -289,7 +287,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 .reco-item { font-size: 12px; color: var(--dark-plum); background: #fff; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); }
 .mood-reco.large:not(:empty) { max-height: 400px; }
 
-/* ===== PERIOD LOG ===== */
 .flow-options { display: flex; gap: 10px; flex-wrap: wrap; }
 .flow-btn { padding: 8px 16px; border: 1.5px solid var(--border); border-radius: 8px; background: #fff; font-family: 'Poppins', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s; color: var(--muted); }
 .flow-btn:hover, .flow-btn.active { background: var(--petal); border-color: var(--cranberry); color: var(--cranberry); font-weight: 600; }
@@ -369,7 +366,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(
 .blog-preview { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.6; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
 .blog-footer { font-size: 12px; font-weight: 600; color: var(--cranberry); }
 
-/* ===== MODALS ===== */
 .modal-overlay { position: fixed; inset: 0; background: rgba(28,14,22,0.5); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(4px); }
 .modal-card { background: #fff; border-radius: var(--radius); padding: 2rem; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 16px 64px rgba(28,14,22,0.3); animation: slideUp 0.3s ease; }
 .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
