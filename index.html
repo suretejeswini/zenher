@@ -8,12 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <!-- React + ReactDOM via CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <!-- Babel to transform JSX in browser -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -22,9 +19,6 @@
 <script type="text/babel">
 const { useState, useEffect, useRef, useCallback } = React;
 
-// ============================================================
-// DATA
-// ============================================================
 const CONDITIONS = {
   pcos: {
     name: 'PCOS', full: 'Polycystic Ovary Syndrome', emoji: '🔵', color: '#8B93C8',
@@ -83,23 +77,19 @@ const BLOGS = [
 ];
 
 const MOODS = [
-  { id: 'happy',    emoji: '😊', label: 'Happy',    color: '#F5C842', reco: ['Go for a sunny walk 🌞', 'Call a friend 💛', 'Dance to your fav song 🎵', 'Write in your gratitude journal ✨'] },
-  { id: 'sad',      emoji: '😢', label: 'Sad',      color: '#8B93C8', reco: ['Cozy blanket & comfort show 🛋️', 'Make yourself warm tea 🍵', 'Be gentle with yourself 💜', 'Journal your feelings 📓'] },
-  { id: 'angry',    emoji: '😤', label: 'Angry',    color: '#E8856A', reco: ['Try 4-7-8 breathing 🧘', 'Go for a brisk walk 🚶', 'Journal it out 📓', 'Splash cold water on your face 💧'] },
-  { id: 'anxious',  emoji: '😰', label: 'Anxious',  color: '#C9A8B8', reco: ['Box breathing: 4 counts each 📦', '5 things you can see 👀', 'Gentle stretching 🤸', 'Limit caffeine today ☕'] },
-  { id: 'tired',    emoji: '😴', label: 'Tired',    color: '#B8A9D9', reco: ['20-min power nap 💤', 'Iron-rich snack: spinach + lemon 🥗', 'Gentle yoga 🧘', 'Hydrate more 💧'] },
-  { id: 'calm',     emoji: '😌', label: 'Calm',     color: '#A8BFA8', reco: ['10-min meditation 🧘', 'Read a good book 📚', 'Mindful meal 🍽️', 'Gratitude journaling ✍️'] },
-  { id: 'loving',   emoji: '🥰', label: 'Loving',   color: '#F0C8D4', reco: ['Write a love note 💌', 'Cozy date night 🕯️', 'Cuddle your pet 🐾', 'Do something kind 🌸'] },
-  { id: 'energetic',emoji: '⚡', label: 'Energetic',color: '#F5C842', reco: ['Hit a workout 🏋️', 'Start that project 🚀', 'Try a new recipe 🍳', 'Organise your space 🧹'] },
+  { id: 'happy',    emoji: '😊', label: 'Happy',    color: '#F5C842', reco: ['Go for a sunny walk', 'Call a friend', 'Dance to your fav song', 'Write in your gratitude journal'] },
+  { id: 'sad',      emoji: '😢', label: 'Sad',      color: '#8B93C8', reco: ['Cozy blanket & comfort show', 'Make yourself warm tea', 'Be gentle with yourself', 'Journal your feelings'] },
+  { id: 'angry',    emoji: '😤', label: 'Angry',    color: '#E8856A', reco: ['Try 4-7-8 breathing', 'Go for a brisk walk', 'Journal it out', 'Splash cold water on your face'] },
+  { id: 'anxious',  emoji: '😰', label: 'Anxious',  color: '#C9A8B8', reco: ['Box breathing: 4 counts each', '5 things you can see ', 'Gentle stretching ', 'Limit caffeine today'] },
+  { id: 'tired',    emoji: '😴', label: 'Tired',    color: '#B8A9D9', reco: ['20-min power nap ', 'Iron-rich snack: spinach + lemon', 'Gentle yoga ', 'Hydrate more '] },
+  { id: 'calm',     emoji: '😌', label: 'Calm',     color: '#A8BFA8', reco: ['10-min meditation', 'Read a good book ', 'Mindful meal ', 'Gratitude journaling '] },
+  { id: 'loving',   emoji: '🥰', label: 'Loving',   color: '#F0C8D4', reco: ['Write a love note ', 'Cozy date night ', 'Cuddle your pet ', 'Do something kind '] },
+  { id: 'energetic',emoji: '⚡', label: 'Energetic',color: '#F5C842', reco: ['Hit a workout ', 'Start that project ', 'Try a new recipe ', 'Organise your space '] },
 ];
 
 const SYMPTOMS_LIST = ['Cramps','Bloating','Headache','Back pain','Breast tenderness','Fatigue','Nausea','Mood swings','Acne','Food cravings','Insomnia','Dizziness','Spotting','Discharge changes','Hot flashes'];
 
 const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-// ============================================================
-// HELPERS
-// ============================================================
 const toDateStr = (d) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const formatDate = (str) => new Date(str+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 const dateDiff = (a,b) => Math.floor((new Date(b)-new Date(a))/86400000);
@@ -149,10 +139,6 @@ function getDayPhase(dateStr, periods, user) {
   if (cd >= avg-5) return 'pms';
   return null;
 }
-
-// ============================================================
-// LOGO COMPONENT
-// ============================================================
 function Logo({ size = '2.4rem' }) {
   return (
     <span style={{ fontFamily: "'Dancing Script', cursive", fontSize: size, fontWeight: 700, lineHeight: 1 }}>
@@ -160,10 +146,6 @@ function Logo({ size = '2.4rem' }) {
     </span>
   );
 }
-
-// ============================================================
-// AUTH COMPONENTS
-// ============================================================
 function AuthNavbar({ onLogin, onSignup }) {
   const scrollTo = (id) => { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); };
   return (
@@ -415,10 +397,6 @@ function SignupPage({ onLogin, onGoLogin }) {
     </div>
   );
 }
-
-// ============================================================
-// APP TOP BAR
-// ============================================================
 function AppTopBar({ user, activeTab, onTab, onProfile, onContact, onLogout }) {
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -440,10 +418,6 @@ function AppTopBar({ user, activeTab, onTab, onProfile, onContact, onLogout }) {
     </header>
   );
 }
-
-// ============================================================
-// CALENDAR COMPONENT
-// ============================================================
 function Calendar({ periods, user, onPeriodChange }) {
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth());
@@ -539,10 +513,6 @@ function Calendar({ periods, user, onPeriodChange }) {
     </div>
   );
 }
-
-// ============================================================
-// MOOD GRID COMPONENT
-// ============================================================
 function MoodGrid({ size = 'normal', onMoodSelect }) {
   const [selected, setSelected] = useState(null);
   const handleSelect = (mood) => {
@@ -572,10 +542,6 @@ function MoodGrid({ size = 'normal', onMoodSelect }) {
     </div>
   );
 }
-
-// ============================================================
-// CYCLE CHART COMPONENT
-// ============================================================
 function CycleChart({ periods }) {
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
@@ -602,10 +568,6 @@ function CycleChart({ periods }) {
   }
   return <div className="cycle-chart-wrap"><canvas ref={canvasRef} height="160"></canvas></div>;
 }
-
-// ============================================================
-// HOME TAB
-// ============================================================
 function HomeTab({ user, periods, moods, onPeriodChange, onMoodLog }) {
   const phase = getCurrentPhase(periods, user);
   const today = new Date();
@@ -634,10 +596,6 @@ function HomeTab({ user, periods, moods, onPeriodChange, onMoodLog }) {
     </div>
   );
 }
-
-// ============================================================
-// PERIOD LOG TAB
-// ============================================================
 function PeriodLogTab({ user, periods, onPeriodChange }) {
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
@@ -718,10 +676,6 @@ function PeriodLogTab({ user, periods, onPeriodChange }) {
     </div>
   );
 }
-
-// ============================================================
-// SYMPTOMS TAB
-// ============================================================
 function SymptomsTab({ symptoms, onSymptomsChange }) {
   const [date, setDate] = useState(toDateStr(new Date()));
   const [selected, setSelected] = useState(new Set());
@@ -772,10 +726,6 @@ function SymptomsTab({ symptoms, onSymptomsChange }) {
     </div>
   );
 }
-
-// ============================================================
-// MOOD TAB
-// ============================================================
 function MoodTab({ moods, onMoodLog }) {
   return (
     <div>
@@ -801,9 +751,6 @@ function MoodTab({ moods, onMoodLog }) {
   );
 }
 
-// ============================================================
-// INSIGHTS TAB
-// ============================================================
 function InsightsTab({ periods, symptoms, user }) {
   const avg = getAvgCycle(periods, user);
   const avgP = getAvgPeriodLen(periods);
@@ -849,10 +796,6 @@ function InsightsTab({ periods, symptoms, user }) {
     </div>
   );
 }
-
-// ============================================================
-// HEALTH HUB TAB
-// ============================================================
 function ConditionCard({ cond }) {
   return (
     <div className="card condition-card">
@@ -931,9 +874,6 @@ function HealthHubTab({ user }) {
   );
 }
 
-// ============================================================
-// PROFILE MODAL
-// ============================================================
 function ProfileModal({ user, onClose, onLogout }) {
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
@@ -961,9 +901,6 @@ function ProfileModal({ user, onClose, onLogout }) {
   );
 }
 
-// ============================================================
-// CONTACT MODAL
-// ============================================================
 function ContactModal({ onClose }) {
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
@@ -980,9 +917,6 @@ function ContactModal({ onClose }) {
   );
 }
 
-// ============================================================
-// MAIN APP SHELL
-// ============================================================
 function AppShell({ user, onLogout }) {
   const key = user.email;
   const load = (k) => JSON.parse(localStorage.getItem(k) || '[]');
@@ -1004,12 +938,12 @@ function AppShell({ user, onLogout }) {
   };
 
   const sidebarItems = [
-    { id:'home', icon:'🏠', label:'Home' },
-    { id:'tracker', icon:'📅', label:'Period Log' },
-    { id:'symptoms', icon:'📝', label:'Symptoms' },
-    { id:'mood', icon:'💫', label:'Mood' },
-    { id:'insights', icon:'📊', label:'Insights' },
-    { id:'conditions', icon:'🩺', label:'Health Hub' },
+    { id:'home', icon:'', label:'Home' },
+    { id:'tracker', icon:'', label:'Period Log' },
+    { id:'symptoms', icon:'', label:'Symptoms' },
+    { id:'mood', icon:'', label:'Mood' },
+    { id:'insights', icon:'', label:'Insights' },
+    { id:'conditions', icon:'', label:'Health Hub' },
   ];
 
   return (
@@ -1042,13 +976,9 @@ function AppShell({ user, onLogout }) {
     </div>
   );
 }
-
-// ============================================================
-// ROOT APP COMPONENT
-// ============================================================
 function App() {
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('zh_current') || 'null'));
-  const [page, setPage] = useState('landing'); // 'landing' | 'login' | 'signup'
+  const [page, setPage] = useState('landing'); 
 
   const handleLogin = (u) => {
     localStorage.setItem('zh_current', JSON.stringify(u));
@@ -1067,8 +997,6 @@ function App() {
       <SignupPage onLogin={handleLogin} onGoLogin={() => setPage('login')} />
     </>
   );
-
-  // Landing (includes login form at bottom)
   return (
     <>
       <AuthNavbar onLogin={() => { setPage('landing'); setTimeout(()=>document.getElementById('login-form-section')?.scrollIntoView({behavior:'smooth'}),100); }} onSignup={() => setPage('signup')} />
@@ -1079,10 +1007,6 @@ function App() {
     </>
   );
 }
-
-// ============================================================
-// RENDER
-// ============================================================
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 </script>
