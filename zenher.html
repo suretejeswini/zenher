@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZenHer — Your Cycle, Your Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+<header class="top-navbar" id="auth-navbar">
+  <div class="navbar-inner">
+    <div class="navbar-logo">
+      <span class="logo-zen">Zen</span><span class="logo-her">her</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="#hero-section" onclick="smoothScroll('hero-section')">Home</a>
+      <a href="#about-section" onclick="smoothScroll('about-section')">About</a>
+      <a href="#conditions-preview" onclick="smoothScroll('conditions-preview')">Health</a>
+      <a href="#contact-section" onclick="smoothScroll('contact-section')">Contact</a>
+    </nav>
+    <div class="navbar-actions">
+      <button class="btn-nav-login" onclick="jumpToLogin()">Sign In</button>
+      <button class="btn-nav-signup" onclick="showPage('signup-page')">Get Started</button>
+    </div>
+  </div>
+</header>
+
+<!-- AUTH CONTAINER -->
+<div id="auth-container" class="auth-container">
+
+  <!-- LANDING + LOGIN -->
+  <div id="login-page" class="auth-page active">
+    <section class="hero-section" id="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">✨ Your wellness companion</div>
+        <div class="hero-logo-wrap">
+          <span class="logo-zen hero-logo">Zen</span><span class="logo-her hero-logo">her</span>
+        </div>
+        <p class="hero-tagline">Your cycle, your story.</p>
+        <p class="hero-desc">Track your periods, understand your body, and feel supported every single day — built for real women.</p>
+        <div class="hero-ctas">
+          <button class="btn-hero-primary" onclick="showPage('signup-page')">Start for Free</button>
+          <button class="btn-hero-secondary" onclick="jumpToLogin()">Sign In</button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>28</strong><span>avg cycle days tracked</span></div>
+          <div class="hero-stat"><strong>5+</strong><span>health conditions covered</span></div>
+          <div class="hero-stat"><strong>100%</strong><span>private &amp; secure</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-circle hc1"></div>
+        <div class="hero-circle hc2"></div>
+        <div class="hero-circle hc3"></div>
+        <div class="floating-card fc1">🩸 Period in 5 days</div>
+        <div class="floating-card fc2">🌸 Fertile window</div>
+        <div class="floating-card fc3">😊 Feeling great today!</div>
+      </div>
+    </section>
+
+    <section class="landing-section" id="about-section">
+      <div class="section-inner">
+        <div class="section-tag">About ZenHer</div>
+        <h2 class="section-title">Everything your body deserves to know</h2>
+        <p class="section-desc">ZenHer is a comprehensive women's health platform that helps you understand your menstrual cycle, track symptoms, log your mood, and learn about common health conditions — all in one beautifully designed space.</p>
+        <div class="features-grid">
+          <div class="feature-card"><div class="feature-icon">📅</div><h3>Period Tracking</h3><p>Log your periods, predict future cycles, and understand your unique rhythm with smart calendar views.</p></div>
+          <div class="feature-card"><div class="feature-icon">💫</div><h3>Mood Tracker</h3><p>Check in daily with your emotions and receive personalised self-care recommendations instantly.</p></div>
+          <div class="feature-card"><div class="feature-icon">📝</div><h3>Symptom Logging</h3><p>Record cramps, bloating, fatigue and more — and spot patterns across your cycles over time.</p></div>
+          <div class="feature-card"><div class="feature-icon">📊</div><h3>Cycle Insights</h3><p>Beautiful charts and data about your average cycle length, phase timings, and health trends.</p></div>
+          <div class="feature-card"><div class="feature-icon">🩺</div><h3>Health Conditions</h3><p>Learn about PCOS, PCOD, endometriosis, and more — with diet guides and what to watch for.</p></div>
+          <div class="feature-card"><div class="feature-icon">🔒</div><h3>100% Private</h3><p>All your data stays on your device. We never share, sell, or access your personal health information.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-section alt" id="conditions-preview">
+      <div class="section-inner">
+        <div class="section-tag">Health Education</div>
+        <h2 class="section-title">Know your body, know your options</h2>
+        <p class="section-desc">Whether you've been diagnosed or just want to stay informed — our health guides are here for everyone.</p>
+        <div class="cond-preview-grid">
+          <div class="cond-preview-card" onclick="showPage('signup-page')"><div class="cond-emoji">🔵</div><h3>PCOS</h3><p>Hormonal imbalance affecting 1 in 10 women</p><span class="read-more">Read guide →</span></div>
+          <div class="cond-preview-card" onclick="showPage('signup-page')"><div class="cond-emoji">🟣</div><h3>PCOD</h3><p>Similar to PCOS with distinct differences</p><span class="read-more">Read guide →</span></div>
+          <div class="cond-preview-card" onclick="showPage('signup-page')"><div class="cond-emoji">🔴</div><h3>Endometriosis</h3><p>Tissue grows outside the uterus causing pain</p><span class="read-more">Read guide →</span></div>
+          <div class="cond-preview-card" onclick="showPage('signup-page')"><div class="cond-emoji">🟡</div><h3>Thyroid</h3><p>Can heavily affect your cycle and energy levels</p><span class="read-more">Read guide →</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login Form -->
+    <section class="landing-section" id="login-form-section">
+      <div class="section-inner narrow">
+        <div class="section-tag">Welcome back</div>
+        <h2 class="section-title">Sign in to ZenHer</h2>
+        <div class="auth-card inline-card">
+          <div class="form-group"><label>Email</label><input type="email" id="login-email" placeholder="you@example.com" /></div>
+          <div class="form-group"><label>Password</label><input type="password" id="login-password" placeholder="••••••••" /></div>
+          <div id="login-error" class="auth-error"></div>
+          <button class="btn-primary" onclick="handleLogin()">Sign In</button>
+          <p class="auth-switch">New here? <span onclick="showPage('signup-page')">Create an account</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-section alt" id="contact-section">
+      <div class="section-inner narrow">
+        <div class="section-tag">Get in touch</div>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-desc">Have questions or feedback? We'd love to hear from you.</p>
+        <div class="contact-grid">
+          <div class="contact-item"> <span>Sure Tejeswini - sure.tejeswini2024@vitstudent.ac.in -8595964012</span></div>
+          <div class="contact-item"> <span>Avishi Sharma - avishi.sharma2024@vitstudent.ac.in -9870561369</span></div>
+        </div>
+        <div class="auth-card inline-card" style="margin-top:1.5rem">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="e.g. Aria Sharma" /></div>
+          <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Write your message..."></textarea></div>
+          <button class="btn-primary" onclick="alert('Message sent!')">Send Message</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="landing-footer">
+      <div class="footer-logo"><span class="logo-zen">Zen</span><span class="logo-her">her</span></div>
+      <p>Made with love for women everywhere.</p>
+      <p class="footer-small">© 2025 ZenHer. All rights reserved. Your data never leaves your device.</p>
+    </footer>
+  </div>
+
+  <div id="signup-page" class="auth-page">
+    <div class="signup-layout">
+      <div class="signup-left">
+        <div class="signup-logo"><span class="logo-zen">Zen</span><span class="logo-her">her</span></div>
+        <p class="signup-tagline">Your wellness journey starts here.</p>
+        <ul class="signup-perks">
+          <li>Period &amp; cycle tracking</li>
+          <li>Mood &amp; symptom logging</li>
+          <li>Health condition guides</li>
+          <li>100% private, on-device</li>
+        </ul>
+      </div>
+      <div class="signup-right">
+        <div class="auth-card signup-card">
+          <h2 class="auth-title">Create your ZenHer account</h2>
+          <p class="auth-tagline">Just a few details to personalise your experience.</p>
+
+          <div id="signup-step-1">
+            <div class="step-label">Step 1 of 2 — Basic Info</div>
+            <div class="form-row">
+              <div class="form-group"><label>Full Name *</label><input type="text" id="signup-name" placeholder="e.g. Aria Sharma" /></div>
+              <div class="form-group"><label>Age *</label><input type="number" id="signup-age" placeholder="e.g. 24" min="10" max="60" /></div>
+            </div>
+            <div class="form-group"><label>Email *</label><input type="email" id="signup-email" placeholder="you@example.com" /></div>
+            <div class="form-group"><label>Password *</label><input type="password" id="signup-password" placeholder="Create a password" /></div>
+            <button class="btn-primary" onclick="goToStep2()">Continue →</button>
+            <p class="auth-switch">Already have an account? <span onclick="showPage('login-page')">Sign in</span></p>
+          </div>
+
+          <div id="signup-step-2" class="hidden">
+            <div class="step-label">Step 2 of 2 — Health Profile</div>
+            <div class="form-row">
+              <div class="form-group"><label>Height (cm)</label><input type="number" id="signup-height" placeholder="e.g. 163" /></div>
+              <div class="form-group"><label>Weight (kg)</label><input type="number" id="signup-weight" placeholder="e.g. 58" /></div>
+            </div>
+            <div class="form-group"><label>Average Cycle Length (days, if known)</label><input type="number" id="signup-cycle" placeholder="e.g. 28" min="20" max="45" /></div>
+            <div class="form-group">
+              <label>Do you have any diagnosed conditions?</label>
+              <div class="cond-checkboxes">
+                <label class="cond-check"><input type="checkbox" value="PCOS" /> PCOS</label>
+                <label class="cond-check"><input type="checkbox" value="PCOD" /> PCOD</label>
+                <label class="cond-check"><input type="checkbox" value="Endometriosis" /> Endometriosis</label>
+                <label class="cond-check"><input type="checkbox" value="Thyroid disorder" /> Thyroid disorder</label>
+                <label class="cond-check"><input type="checkbox" value="Diabetes" /> Diabetes</label>
+                <label class="cond-check"><input type="checkbox" value="Anaemia" /> Anaemia</label>
+                <label class="cond-check"><input type="checkbox" value="None" /> None / Prefer not to say</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Other health notes (optional)</label><textarea id="signup-notes" rows="2" placeholder="Anything else we should know..."></textarea></div>
+            <div id="signup-error" class="auth-error"></div>
+            <div class="form-row">
+              <button class="btn-secondary" onclick="goToStep1()">← Back</button>
+              <button class="btn-primary" onclick="handleSignup()">Create Account ✓</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="signup-art">
+      <div class="art-circle c1"></div>
+      <div class="art-circle c2"></div>
+    </div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <header class="app-topbar">
+    <div class="app-topbar-logo">
+      <span class="logo-zen">Zen</span><span class="logo-her">her</span>
+    </div>
+    <nav class="app-topbar-nav">
+      <a href="#" onclick="switchTab('home'); return false;" class="app-nav-link" id="appnav-home">Home</a>
+      <a href="#" onclick="switchTab('conditions'); return false;" class="app-nav-link" id="appnav-conditions">Health Hub</a>
+      <a href="#" onclick="switchTab('tracker'); return false;" class="app-nav-link" id="appnav-tracker">Period Log</a>
+      <a href="#" onclick="switchTab('insights'); return false;" class="app-nav-link" id="appnav-insights">Insights</a>
+      <a href="#" onclick="showProfileModal(); return false;" class="app-nav-link">Profile</a>
+      <a href="#" onclick="showContactModal(); return false;" class="app-nav-link">Contact</a>
+    </nav>
+    <button class="btn-nav-logout" onclick="handleLogout()">Sign Out</button>
+  </header>
+
+  <div class="app-body">
+    <nav class="sidebar">
+      <ul class="nav-links">
+        <li onclick="switchTab('home')" id="nav-home" class="active"><span class="nav-icon"></span><span>Home</span></li>
+        <li onclick="switchTab('tracker')" id="nav-tracker"><span class="nav-icon"></span><span>Period Log</span></li>
+        <li onclick="switchTab('symptoms')" id="nav-symptoms"><span class="nav-icon"></span><span>Symptoms</span></li>
+        <li onclick="switchTab('mood')" id="nav-mood"><span class="nav-icon"></span><span>Mood</span></li>
+        <li onclick="switchTab('insights')" id="nav-insights"><span class="nav-icon"></span><span>Insights</span></li>
+        <li onclick="switchTab('conditions')" id="nav-conditions"><span class="nav-icon"></span><span>Health Hub</span></li>
+      </ul>
+      <div class="sidebar-bottom">
+        <button class="btn-logout" onclick="showProfileModal()">👤 My Profile</button>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <section id="tab-home" class="tab active">
+        <div class="home-header">
+          <div><h1 class="greeting" id="greeting-name">Hi!</h1><p class="greeting-sub" id="greeting-date"></p></div>
+          <div class="phase-badge" id="phase-badge">Follicular Phase</div>
+        </div>
+        <div class="card calendar-card">
+          <div class="card-header">
+            <h3>Your Cycle Calendar</h3>
+            <div class="calendar-nav">
+              <button onclick="prevMonth()">‹</button>
+              <span id="calendar-month-label"></span>
+              <button onclick="nextMonth()">›</button>
+            </div>
+          </div>
+          <div class="cycle-legend">
+            <span><span class="dot period"></span> Period</span>
+            <span><span class="dot fertile"></span> Fertile</span>
+            <span><span class="dot ovulation"></span> Ovulation</span>
+            <span><span class="dot pms"></span> PMS</span>
+          </div>
+          <div class="calendar-grid-wrap">
+            <div class="cal-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+          </div>
+          <div class="day-detail" id="day-detail"><div class="day-detail-inner" id="day-detail-inner"><p class="detail-placeholder">Tap a day to see details or log your period.</p></div></div>
+          <div class="period-countdown" id="period-countdown"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3>How are you feeling today?</h3></div>
+          <div class="mood-grid" id="home-mood-grid"></div>
+          <div class="mood-reco" id="mood-reco"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3>Previous Cycles</h3></div>
+          <div class="cycle-chart-wrap"><canvas id="cycleChart" height="160"></canvas></div>
+        </div>
+      </section>
+
+      <section id="tab-tracker" class="tab">
+        <h2 class="tab-title">Period Log</h2>
+        <div class="card">
+          <h3>Log a Period</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Start Date</label><input type="date" id="period-start" /></div>
+            <div class="form-group"><label>End Date</label><input type="date" id="period-end" /></div>
+          </div>
+          <div class="form-group">
+            <label>Flow Intensity</label>
+            <div class="flow-options">
+              <button class="flow-btn" data-flow="light" onclick="selectFlow(this)"> Light</button>
+              <button class="flow-btn active" data-flow="medium" onclick="selectFlow(this)"> Medium</button>
+              <button class="flow-btn" data-flow="heavy" onclick="selectFlow(this)"> Heavy</button>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="logPeriod()">Save Period</button>
+          <div id="period-save-msg" class="save-msg"></div>
+        </div>
+        <div class="card"><h3>Period History</h3><div id="period-history" class="history-list"></div></div>
+        <div class="card prediction-card"><h3> Next Period Prediction</h3><div id="next-period-prediction"></div></div>
+      </section>
+
+      <section id="tab-symptoms" class="tab">
+        <h2 class="tab-title">Symptom Log</h2>
+        <div class="card">
+          <h3>Log Today's Symptoms</h3>
+          <div class="form-group"><label>Date</label><input type="date" id="symptom-date" /></div>
+          <div class="symptom-grid" id="symptom-grid"></div>
+          <div class="form-group" style="margin-top:1rem"><label>Notes</label><textarea id="symptom-notes" placeholder="Any extra notes..." rows="3"></textarea></div>
+          <button class="btn-primary" onclick="saveSymptoms()">Save Symptoms</button>
+          <div id="symptom-save-msg" class="save-msg"></div>
+        </div>
+        <div class="card"><h3>Recent Symptom Logs</h3><div id="symptom-history"></div></div>
+      </section>
+
+      <section id="tab-mood" class="tab">
+        <h2 class="tab-title">Mood Tracker</h2>
+        <div class="card">
+          <h3>How are you feeling?</h3>
+          <div class="mood-grid large" id="full-mood-grid"></div>
+          <div class="mood-reco large" id="full-mood-reco"></div>
+        </div>
+        <div class="card"><h3>Mood History</h3><div id="mood-history" class="mood-log-list"></div></div>
+      </section>
+
+      <section id="tab-insights" class="tab">
+        <h2 class="tab-title">Insights</h2>
+        <div class="insights-grid">
+          <div class="card stat-card"><div class="stat-label">Avg Cycle Length</div><div class="stat-value" id="stat-cycle">— days</div></div>
+          <div class="card stat-card"><div class="stat-label">Avg Period Length</div><div class="stat-value" id="stat-period">— days</div></div>
+          <div class="card stat-card"><div class="stat-label">Current Phase</div><div class="stat-value" id="stat-phase">—</div></div>
+          <div class="card stat-card"><div class="stat-label">Cycles Logged</div><div class="stat-value" id="stat-count">0</div></div>
+        </div>
+        <div class="card"><h3>Cycle Length Over Time</h3><div class="cycle-chart-wrap"><canvas id="insightChart" height="180"></canvas></div></div>
+        <div class="card"><h3>Common Symptoms</h3><div id="symptom-freq"></div></div>
+      </section>
+
+      <section id="tab-conditions" class="tab">
+        <h2 class="tab-title">Health Hub</h2>
+        <p class="tab-subtitle">Whether you have a diagnosis or just want to be informed — this space is for everyone.</p>
+        <div id="user-conditions-banner" class="user-conditions-banner"></div>
+        <div class="conditions-tabs">
+          <button class="cond-tab-btn active" onclick="showCondition('pcos',this)">PCOS</button>
+          <button class="cond-tab-btn" onclick="showCondition('pcod',this)">PCOD</button>
+          <button class="cond-tab-btn" onclick="showCondition('endo',this)">Endometriosis</button>
+          <button class="cond-tab-btn" onclick="showCondition('thyroid',this)">Thyroid</button>
+          <button class="cond-tab-btn" onclick="showCondition('anaemia',this)">Anaemia</button>
+        </div>
+        <div id="condition-content"></div>
+        <div class="card" style="margin-top:1.5rem">
+          <div class="card-header"><h3>ZenHer Reads — Women's Health Blogs</h3></div>
+          <div class="blog-grid" id="blog-grid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div id="profile-modal" class="modal-overlay hidden" onclick="hideProfileModal(event)">
+  <div class="modal-card">
+    <div class="modal-header"><h3>My Profile</h3><button class="modal-close" onclick="hideProfileModal()">✕</button></div>
+    <div id="profile-content"></div>
+  </div>
+</div>
+
+<div id="contact-modal" class="modal-overlay hidden" onclick="hideContactModal(event)">
+  <div class="modal-card">
+    <div class="modal-header"><h3>Contact Us</h3><button class="modal-close" onclick="hideContactModal()">✕</button></div>
+    <div class="contact-grid" style="margin-bottom:1rem">
+        <div class="contact-item"> <span>Sure Tejeswini - sure.tejeswini2024@vitstudent.ac.in -8595964012</span></div>
+        <div class="contact-item"> <span>Avishi Sharma - avishi.sharma2024@vitstudent.ac.in -9870561369</span></div>
+    </div>
+    <div class="form-group"><label>Your message</label><textarea rows="4" placeholder="Write to us..."></textarea></div>
+    <button class="btn-primary" onclick="alert('Sent!'); hideContactModal()">Send Message</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+
+const CONDITIONS = {
+  pcos: { name:'PCOS', full:'Polycystic Ovary Syndrome', emoji:'🔵', color:'#8B93C8',
+    overview:'PCOS is a hormonal disorder common among women of reproductive age. The ovaries may develop numerous small follicles and fail to regularly release eggs, leading to irregular cycles, excess androgens, and a range of symptoms.',
+    note:'Affects 1 in 10 women. Early diagnosis and lifestyle changes significantly improve quality of life.',
+    symptoms:['Irregular or absent periods','Heavy bleeding','Excess facial/body hair','Acne & oily skin','Thinning hair','Weight gain around belly','Darkening of skin creases','Difficulty conceiving'],
+    eat:['Leafy greens (spinach, kale)','Berries (anti-inflammatory)','Lean proteins (chicken, fish, tofu)','Flaxseeds & chia seeds','Whole grains (oats, quinoa)','Legumes (lentils, chickpeas)','Olive oil','Turmeric & cinnamon','Low-GI fruits'],
+    avoid:['Refined carbs & white bread','Sugary drinks','Processed snacks','Trans fats & fried food','Excess red meat','Excess dairy','Caffeine in excess','Alcohol'],
+    tips:['Exercise 30+ min daily','Manage stress with yoga or meditation','Prioritise 7-9 hours of sleep','Track your cycle for patterns','Get blood sugar & hormone levels checked'],
+  },
+  pcod: { name:'PCOD', full:'Polycystic Ovarian Disease', emoji:'🟣', color:'#B8A9D9',
+    overview:'PCOD is a condition where the ovaries produce many immature or partially mature eggs that turn into cysts. Less severe than PCOS — the ovaries are enlarged and produce excess androgens, but it can often be fully managed through diet and lifestyle.',
+    note:'PCOD is milder than PCOS and often reversible with lifestyle changes alone.',
+    symptoms:['Irregular periods','Mild weight gain','Mild acne','Abdominal pain','Mild facial hair','Difficulty conceiving in some cases'],
+    eat:['Fresh vegetables and fruits','Whole grains and millets','Omega-3 rich fish (salmon)','Coconut water','Seeds (pumpkin, sunflower)','Fermented foods (yoghurt, idli)','Herbal teas (spearmint, chamomile)'],
+    avoid:['Junk & fast food','Excess white rice','Sugary snacks','Processed meats','High-sodium foods'],
+    tips:['Regular exercise is key','Avoid crash diets','Stress management is crucial','PCOD can often be reversed with lifestyle changes'],
+  },
+  endo: { name:'Endometriosis', full:'Endometriosis', emoji:'🔴', color:'#E8856A',
+    overview:'Endometriosis is a painful disorder in which tissue similar to the uterine lining grows outside the uterus. This tissue bleeds with each cycle but has nowhere to go, causing inflammation, scar tissue, and intense pain.',
+    note:'Affects 1 in 7 women. Takes an average of 7–10 years to diagnose. Advocate for yourself.',
+    symptoms:['Severely painful periods','Chronic pelvic pain','Pain during sex','Pain with bowel movements','Excessive bleeding','Fatigue & bloating','Difficulty conceiving'],
+    eat:['Anti-inflammatory foods (berries, olive oil)','Omega-3s (flaxseed, salmon)','Cruciferous vegetables (broccoli)','Magnesium-rich foods (dark chocolate, nuts)','Iron-rich foods','Green tea','High-fibre foods'],
+    avoid:['Red & processed meat','Alcohol and caffeine','Trans fats','Excess soy','Gluten (may worsen inflammation)','Refined sugar'],
+    tips:['Heat therapy (hot water bottle) helps','Pelvic physiotherapy reduces symptoms','Hormonal treatments available — see a doctor','Track pain patterns alongside your cycle'],
+  },
+  thyroid: { name:'Thyroid Disorders', full:'Hypothyroidism & Hyperthyroidism', emoji:'🟡', color:'#F5C842',
+    overview:'The thyroid gland regulates metabolism, energy, and hormones. Both underactive (hypothyroidism) and overactive (hyperthyroidism) thyroid conditions can significantly disrupt menstrual cycles, mood, weight, and energy.',
+    note:'Thyroid issues are among the most underdiagnosed conditions in women. If periods suddenly change, ask for a thyroid test.',
+    symptoms:['Irregular, heavy, or absent periods','Unexplained weight changes','Extreme fatigue or hyperactivity','Hair thinning','Feeling too cold or hot','Mood swings & brain fog','Constipation or diarrhoea','Neck swelling'],
+    eat:['Iodine-rich foods (eggs, dairy, seaweed)','Selenium foods (Brazil nuts, tuna)','Zinc-rich foods (pumpkin seeds)','Adequate protein','Anti-inflammatory foods'],
+    avoid:['Raw cruciferous veg in excess (hypothyroid)','Gluten (if autoimmune thyroid)','Excess soy','Processed foods','Excess sugar','Fluoride-heavy water'],
+    tips:['Get TSH, T3, T4 checked annually','Take thyroid medication on empty stomach','Tell your gynaecologist about your diagnosis','Monitor closely if trying to conceive'],
+  },
+  anaemia: { name:'Anaemia', full:'Iron-Deficiency Anaemia', emoji:'🟠', color:'#D4A373',
+    overview:"Iron-deficiency anaemia is extremely common in women, especially those with heavy periods. When iron stores are low, the body can't make enough haemoglobin to carry oxygen to organs, causing fatigue, weakness, and worsened period symptoms.",
+    note:'Nearly 50% of Indian women have anaemia. Heavy periods are a major cause — always mention this to your doctor.',
+    symptoms:['Extreme tiredness & weakness','Pale or yellowish skin','Shortness of breath','Dizziness & headaches','Cold hands and feet','Brittle nails','Unusual cravings (ice, dirt — pica)','Heavy menstrual bleeding'],
+    eat:['Red meat and poultry (haem iron)','Spinach, fenugreek, drumstick leaves','Legumes (lentils, kidney beans)','Tofu and tempeh','Pumpkin seeds & quinoa','Vitamin C foods with meals (lemon, amla)','Jaggery','Dates and raisins'],
+    avoid:["Tea & coffee with iron-rich meals",'Calcium-rich foods at same time as iron','Antacids with iron supplements'],
+    tips:['Squeeze lemon on iron-rich meals to boost absorption','Cook in cast iron pans','Get haemoglobin checked if periods are heavy','Iron supplements only with doctor advice'],
+  },
+};
+
+const BLOGS = [
+  { title:'Why your period is your 5th vital sign', tag:'Cycle Health', preview:'Your menstrual cycle reveals so much about your overall health. Doctors are now calling it the fifth vital sign...', mins:4 },
+  { title:'Seed cycling: does it actually work for hormones?', tag:'Nutrition',  preview:'Eating specific seeds during different cycle phases to support hormone balance. Here\'s what the science says...', mins:5 },
+  { title:'The luteal phase slump and how to beat it', tag:'Wellness',  preview:'That week before your period when everything feels harder? That\'s the luteal phase — and there are ways to work with it...', mins:6 },
+  { title:'Iron, periods, and why Indian women are at risk', tag:'Nutrition', preview:'Nearly half of Indian women are anaemic. Heavy periods, poor diet, and lack of awareness all play a role...', mins:5 },
+  { title:'How stress literally stops your period', tag:'Mind & Body', preview:'Hypothalamic amenorrhoea — or stress-induced missing periods — is more common than you think...', mins:7 },
+  { title:'PCOS vs PCOD: the real differences explained', tag:'Conditions',  preview:'These two terms get used interchangeably all the time — but they\'re not the same condition at all...', mins:5 },
+];
+
+const MOODS = [
+  { id:'happy', emoji:'😊', label:'Happy', color:'#F5C842', reco:['Go for a sunny walk','Call a friend ','Dance to your fav song ','Write in your gratitude journal '] },
+  { id:'sad', emoji:'😢', label:'Sad', color:'#8B93C8', reco:['Cozy blanket & comfort show ','Make yourself warm tea ','Be gentle with yourself ','Journal your feelings '] },
+  { id:'angry', emoji:'😤', label:'Angry', color:'#E8856A', reco:['Try 4-7-8 breathing ','Go for a brisk walk ','Journal it out ','Splash cold water on your face '] },
+  { id:'anxious', emoji:'😰', label:'Anxious', color:'#C9A8B8', reco:['Box breathing: 4 counts each ','5 things you can see ','Gentle stretching ','Limit caffeine today '] },
+  { id:'tired', emoji:'😴', label:'Tired', color:'#B8A9D9', reco:['20-min power nap ','Iron-rich snack: spinach + lemon ','Gentle yoga ','Hydrate more '] },
+  { id:'calm', emoji:'😌', label:'Calm', color:'#A8BFA8', reco:['10-min meditation ','Read a good book ','Mindful meal ','Gratitude journaling '] },
+  { id:'loving', emoji:'🥰', label:'Loving', color:'#F0C8D4', reco:['Write a love note ','Cozy date night ','Cuddle your pet ','Do something kind '] },
+  { id:'energetic', emoji:'⚡', label:'Energetic', color:'#F5C842', reco:['Hit a workout ','Start that project ','Try a new recipe ','Organise your space '] },
+];
+
+const SYMPTOMS = ['Cramps','Bloating','Headache','Back pain','Breast tenderness','Fatigue','Nausea','Mood swings','Acne','Food cravings','Insomnia','Dizziness','Spotting','Discharge changes','Hot flashes'];
+
+
+let state = { user:null, periods:[], symptoms:[], moods:[], selectedFlow:'medium', calMonth:new Date().getMonth(), calYear:new Date().getFullYear() };
+
+
+function smoothScroll(id) { const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); return false; }
+function jumpToLogin() { document.getElementById('login-form-section').scrollIntoView({behavior:'smooth'}); }
+
+function showPage(id) {
+  document.querySelectorAll('.auth-page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function goToStep2() {
+  const n=document.getElementById('signup-name').value.trim(), a=document.getElementById('signup-age').value,
+        e=document.getElementById('signup-email').value.trim(), p=document.getElementById('signup-password').value;
+  if(!n||!a||!e||!p){alert('Please fill in all required fields.');return;}
+  document.getElementById('signup-step-1').classList.add('hidden');
+  document.getElementById('signup-step-2').classList.remove('hidden');
+}
+
+function goToStep1() {
+  document.getElementById('signup-step-2').classList.add('hidden');
+  document.getElementById('signup-step-1').classList.remove('hidden');
+}
+
+function handleLogin() {
+  const email=document.getElementById('login-email').value.trim(), password=document.getElementById('login-password').value;
+  const err=document.getElementById('login-error');
+  if(!email||!password){err.textContent='Please fill in all fields.';return;}
+  const users=JSON.parse(localStorage.getItem('zh_users')||'[]');
+  const user=users.find(u=>u.email===email&&u.password===password);
+  if(!user){err.textContent='Invalid email or password.';return;}
+  err.textContent=''; loginUser(user);
+}
+
+function handleSignup() {
+  const name=document.getElementById('signup-name').value.trim(), age=document.getElementById('signup-age').value,
+        email=document.getElementById('signup-email').value.trim(), password=document.getElementById('signup-password').value,
+        height=document.getElementById('signup-height').value, weight=document.getElementById('signup-weight').value,
+        cycleLen=document.getElementById('signup-cycle').value, notes=document.getElementById('signup-notes').value;
+  const err=document.getElementById('signup-error');
+  const conditions=[...document.querySelectorAll('.cond-checkboxes input:checked')].map(el=>el.value);
+  if(!name||!email||!password){err.textContent='Please fill in required fields.';return;}
+  const users=JSON.parse(localStorage.getItem('zh_users')||'[]');
+  if(users.find(u=>u.email===email)){err.textContent='Email already registered.';return;}
+  const user={name,age,email,password,height,weight,cycleLen,conditions,notes};
+  users.push(user); localStorage.setItem('zh_users',JSON.stringify(users));
+  loginUser(user);
+}
+
+function loginUser(user) {
+  state.user=user; localStorage.setItem('zh_current',JSON.stringify(user));
+  loadUserData();
+  document.getElementById('auth-container').classList.add('hidden');
+  document.getElementById('auth-navbar').classList.add('hidden');
+  document.getElementById('app').classList.remove('hidden');
+  initApp();
+}
+
+function handleLogout() {
+  localStorage.removeItem('zh_current'); state.user=null;
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('auth-container').classList.remove('hidden');
+  document.getElementById('auth-navbar').classList.remove('hidden');
+  showPage('login-page');
+}
+
+function loadUserData() {
+  const k=state.user.email;
+  state.periods=JSON.parse(localStorage.getItem('zh_periods_'+k)||'[]');
+  state.symptoms=JSON.parse(localStorage.getItem('zh_symptoms_'+k)||'[]');
+  state.moods=JSON.parse(localStorage.getItem('zh_moods_'+k)||'[]');
+}
+
+function saveUserData() {
+  const k=state.user.email;
+  localStorage.setItem('zh_periods_'+k,JSON.stringify(state.periods));
+  localStorage.setItem('zh_symptoms_'+k,JSON.stringify(state.symptoms));
+  localStorage.setItem('zh_moods_'+k,JSON.stringify(state.moods));
+}
+
+// ===== INIT =====
+function initApp() {
+  const u=state.user;
+  document.getElementById('greeting-name').textContent=`Hi, ${u.name}! 👋`;
+  document.getElementById('greeting-date').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  document.getElementById('symptom-date').value=toDateStr(new Date());
+  renderMoodGrid('home-mood-grid','home'); renderMoodGrid('full-mood-grid','full');
+  renderSymptomGrid(); renderCalendar(); renderPeriodHistory(); renderPrediction();
+  renderSymptomHistory(); renderMoodHistory(); renderCycleChart('cycleChart');
+  renderInsights(); showCondition('pcos',document.querySelector('.cond-tab-btn'));
+  renderBlogs(); renderUserConditionsBanner();
+}
+
+// ===== TABS =====
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-links li').forEach(l=>l.classList.remove('active'));
+  document.querySelectorAll('.app-nav-link').forEach(a=>a.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  const s=document.getElementById('nav-'+name); if(s) s.classList.add('active');
+  const a=document.getElementById('appnav-'+name); if(a) a.classList.add('active');
+  if(name==='insights'){renderCycleChart('insightChart');renderInsights();renderSymptomFreq();}
+  if(name==='home') renderCycleChart('cycleChart');
+}
+
+// ===== CALENDAR =====
+function renderCalendar() {
+  const grid=document.getElementById('calendar-grid'), label=document.getElementById('calendar-month-label');
+  const y=state.calYear, m=state.calMonth;
+  const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  label.textContent=`${monthNames[m]} ${y}`;
+  const first=new Date(y,m,1).getDay(), days=new Date(y,m+1,0).getDate();
+  grid.innerHTML='';
+  for(let i=0;i<first;i++){const b=document.createElement('div');b.className='cal-day empty';grid.appendChild(b);}
+  for(let d=1;d<=days;d++){
+    const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const cell=document.createElement('div'); cell.className='cal-day'; cell.textContent=d;
+    const ph=getDayPhase(ds); if(ph) cell.classList.add('phase-'+ph);
+    if(ds===toDateStr(new Date())) cell.classList.add('today');
+    cell.addEventListener('click',()=>showDayDetail(ds)); grid.appendChild(cell);
+  }
+  updateCountdown();
+}
+
+function prevMonth(){state.calMonth--;if(state.calMonth<0){state.calMonth=11;state.calYear--;}renderCalendar();}
+function nextMonth(){state.calMonth++;if(state.calMonth>11){state.calMonth=0;state.calYear++;}renderCalendar();}
+
+function getDayPhase(ds) {
+  for(const p of state.periods){const s=new Date(p.start),e=new Date(p.end),d=new Date(ds);if(d>=s&&d<=e)return'period';}
+  if(!state.periods.length) return null;
+  const last=state.periods[state.periods.length-1], lastStart=new Date(last.start), avg=getAvgCycle();
+  const daysSince=Math.floor((new Date(ds)-lastStart)/86400000); if(daysSince<0) return null;
+  const cd=daysSince%avg, pl=dateDiff(last.start,last.end)+1;
+  if(cd<pl) return'period'; if(cd>=pl&&cd<pl+5) return'fertile';
+  if(cd>=13&&cd<=15) return'ovulation'; if(cd>=avg-5) return'pms'; return null;
+}
+
+function showDayDetail(ds) {
+  const panel=document.getElementById('day-detail'), inner=document.getElementById('day-detail-inner');
+  panel.classList.add('open');
+  const ph=getDayPhase(ds);
+  const phl={period:' Period day',fertile:' Fertile window',ovulation:'Ovulation',pms:' PMS zone'};
+  const isPeriod=state.periods.some(p=>{const s=new Date(p.start),e=new Date(p.end),d=new Date(ds);return d>=s&&d<=e;});
+  inner.innerHTML=`
+    <div class="detail-header">
+      <strong>${new Date(ds+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}</strong>
+      <span class="detail-phase ${ph||''}">${phl[ph]||'Regular day'}</span>
+    </div>
+    ${isPeriod
+      ?`<div class="detail-period-tag">Period logged ✓ <button class="btn-sm" onclick="removePeriodDay('${ds}')">Remove</button></div>`
+      :`<div class="detail-actions"><button class="btn-sm" onclick="quickLogPeriod('${ds}')"> Mark as Period Day</button></div>`}
+    <div class="detail-phase-info">${getPhaseInfo(ph)}</div>`;
+}
+
+function getPhaseInfo(ph) {
+  const info={period:'Your body is shedding the uterine lining. Rest, warmth, and hydration help. Iron-rich foods are great now.',fertile:'Your estrogen is rising. You may feel more social and energetic during this window.',ovulation:'Peak fertility! You may feel your best — confident, energetic, and social.',pms:'Progesterone is dropping. You may feel mood shifts, bloating, or fatigue. Be extra gentle with yourself.'};
+  return info[ph]?`<p>${info[ph]}</p>`:'<p style="font-size:13px;color:#C9A8B8">A regular day in your cycle. Keep tracking to see patterns.</p>';
+}
+
+function quickLogPeriod(ds) {
+  const e=new Date(ds); e.setDate(e.getDate()+4);
+  state.periods.push({start:ds,end:toDateStr(e),flow:'medium'});
+  saveUserData(); renderCalendar(); renderPeriodHistory(); renderPrediction(); showDayDetail(ds);
+}
+
+function removePeriodDay(ds) {
+  state.periods=state.periods.filter(p=>!(new Date(ds)>=new Date(p.start)&&new Date(ds)<=new Date(p.end)));
+  saveUserData(); renderCalendar(); renderPeriodHistory(); renderPrediction();
+  document.getElementById('day-detail').classList.remove('open');
+}
+
+function updateCountdown() {
+  const el=document.getElementById('period-countdown'), next=getNextPeriodDate();
+  if(!next){el.innerHTML='';return;}
+  const days=Math.ceil((next-new Date())/86400000);
+  if(days<=0) el.innerHTML=`<span class="countdown-badge period">Your period may have started</span>`;
+  else if(days<=10) el.innerHTML=`<span class="countdown-badge warning">Period in <strong>${days}</strong> days</span>`;
+  else el.innerHTML=`<span class="countdown-badge calm"> Next period in <strong>${days}</strong> days</span>`;
+}
+
+
+function selectFlow(btn){document.querySelectorAll('.flow-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.selectedFlow=btn.dataset.flow;}
+
+function logPeriod() {
+  const start=document.getElementById('period-start').value, end=document.getElementById('period-end').value, msg=document.getElementById('period-save-msg');
+  if(!start||!end){msg.textContent='Please select start and end dates.';msg.className='save-msg error';return;}
+  if(new Date(end)<new Date(start)){msg.textContent='End must be after start.';msg.className='save-msg error';return;}
+  state.periods.push({start,end,flow:state.selectedFlow}); saveUserData();
+  renderPeriodHistory(); renderPrediction(); renderCalendar(); renderCycleChart('cycleChart'); renderInsights();
+  msg.textContent='Period logged! ✓'; msg.className='save-msg success'; setTimeout(()=>msg.textContent='',3000);
+}
+
+function renderPeriodHistory() {
+  const el=document.getElementById('period-history');
+  if(!state.periods.length){el.innerHTML='<p class="empty-msg">No periods logged yet.</p>';return;}
+  el.innerHTML=[...state.periods].reverse().map((p,i)=>{
+    const ri=state.periods.length-1-i;
+    return`<div class="history-item"><div><strong>${formatDate(p.start)}</strong> → <strong>${formatDate(p.end)}</strong><span class="flow-tag">${p.flow}</span></div><div class="history-actions"><span class="duration-tag">${dateDiff(p.start,p.end)+1} days</span><button class="icon-btn" onclick="deletePeriod(${ri})">✕</button></div></div>`;
+  }).join('');
+}
+
+function deletePeriod(i){state.periods.splice(i,1);saveUserData();renderPeriodHistory();renderPrediction();renderCalendar();renderCycleChart('cycleChart');renderInsights();}
+
+function renderPrediction() {
+  const el=document.getElementById('next-period-prediction'), next=getNextPeriodDate();
+  if(!next){el.innerHTML='<p class="empty-msg">Log at least one period to see predictions.</p>';return;}
+  const days=Math.ceil((next-new Date())/86400000), avg=getAvgCycle();
+  el.innerHTML=`<div class="prediction-row"><div class="prediction-item"><div class="pred-label">Next Period</div><div class="pred-value">${next.toLocaleDateString('en-US',{month:'long',day:'numeric'})}</div></div><div class="prediction-item"><div class="pred-label">Days Away</div><div class="pred-value ${days<=5?'urgent':''}">${days>0?days:'Now'}</div></div><div class="prediction-item"><div class="pred-label">Avg Cycle</div><div class="pred-value">${avg} days</div></div></div><div class="prediction-note">Estimated ovulation: ${new Date(next.getTime()-14*86400000).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div>`;
+}
+
+let selectedSymptoms=new Set();
+function renderSymptomGrid(){document.getElementById('symptom-grid').innerHTML=SYMPTOMS.map(s=>`<div class="symptom-chip" onclick="toggleSymptom(this,'${s}')">${s}</div>`).join('');}
+function toggleSymptom(el,s){if(selectedSymptoms.has(s)){selectedSymptoms.delete(s);el.classList.remove('selected');}else{selectedSymptoms.add(s);el.classList.add('selected');}}
+function saveSymptoms(){
+  const date=document.getElementById('symptom-date').value, notes=document.getElementById('symptom-notes').value, msg=document.getElementById('symptom-save-msg');
+  if(!date){msg.textContent='Please select a date.';msg.className='save-msg error';return;}
+  state.symptoms.push({date,symptoms:[...selectedSymptoms],notes}); saveUserData();
+  selectedSymptoms.clear(); document.querySelectorAll('.symptom-chip').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('symptom-notes').value=''; renderSymptomHistory(); renderSymptomFreq();
+  msg.textContent='Saved! ✓'; msg.className='save-msg success'; setTimeout(()=>msg.textContent='',3000);
+}
+function renderSymptomHistory(){
+  const el=document.getElementById('symptom-history');
+  if(!state.symptoms.length){el.innerHTML='<p class="empty-msg">No symptoms logged yet.</p>';return;}
+  el.innerHTML=[...state.symptoms].reverse().slice(0,10).map(s=>`<div class="history-item"><div><strong>${formatDate(s.date)}</strong><div class="symptom-tags">${s.symptoms.map(sym=>`<span class="stag">${sym}</span>`).join('')}</div>${s.notes?`<p class="sym-note">${s.notes}</p>`:''}</div></div>`).join('');
+}
+function renderSymptomFreq(){
+  const el=document.getElementById('symptom-freq');
+  if(!state.symptoms.length){el.innerHTML='<p class="empty-msg">No symptoms logged yet.</p>';return;}
+  const freq={}; state.symptoms.forEach(s=>s.symptoms.forEach(sym=>freq[sym]=(freq[sym]||0)+1));
+  const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,8), max=sorted[0][1];
+  el.innerHTML=sorted.map(([sym,cnt])=>`<div class="freq-row"><span class="freq-label">${sym}</span><div class="freq-bar-wrap"><div class="freq-bar" style="width:${(cnt/max)*100}%"></div></div><span class="freq-count">${cnt}x</span></div>`).join('');
+}
+
+function renderMoodGrid(gid,type){document.getElementById(gid).innerHTML=MOODS.map(m=>`<div class="mood-item" data-id="${m.id}" onclick="selectMood('${m.id}','${type}')" style="--mc:${m.color}"><span class="mood-emoji">${m.emoji}</span><span class="mood-label">${m.label}</span></div>`).join('');}
+function selectMood(id,type){
+  const mood=MOODS.find(m=>m.id===id); if(!mood) return;
+  const gid=type==='home'?'home-mood-grid':'full-mood-grid', rid=type==='home'?'mood-reco':'full-mood-reco';
+  document.querySelectorAll(`#${gid} .mood-item`).forEach(el=>el.classList.remove('selected'));
+  document.querySelector(`#${gid} [data-id="${id}"]`).classList.add('selected');
+  document.getElementById(rid).innerHTML=`<div class="reco-header">Because you feel <strong>${mood.label}</strong>, try:</div><div class="reco-list">${mood.reco.map(r=>`<div class="reco-item">${r}</div>`).join('')}</div>`;
+  if(type==='full'){state.moods.push({date:toDateStr(new Date()),mood:id,emoji:mood.emoji,label:mood.label});saveUserData();renderMoodHistory();}
+}
+function renderMoodHistory(){
+  const el=document.getElementById('mood-history');
+  if(!state.moods.length){el.innerHTML='<p class="empty-msg">No moods logged yet.</p>';return;}
+  el.innerHTML=[...state.moods].reverse().slice(0,14).map(m=>`<div class="mood-log-item"><span class="mood-log-emoji">${m.emoji}</span><div><strong>${m.label}</strong><br><small>${formatDate(m.date)}</small></div></div>`).join('');
+}
+
+function renderInsights(){
+  const avg=getAvgCycle(),avgP=getAvgPeriodLen();
+  document.getElementById('stat-cycle').textContent=avg?avg+' days':'— days';
+  document.getElementById('stat-period').textContent=avgP?avgP+' days':'— days';
+  document.getElementById('stat-count').textContent=state.periods.length;
+  document.getElementById('stat-phase').textContent=getCurrentPhase();
+  const pb=document.getElementById('phase-badge'); if(pb) pb.textContent=getCurrentPhase();
+}
+function renderCycleChart(cid){
+  const canvas=document.getElementById(cid); if(!canvas) return;
+  const ex=Chart.getChart(canvas); if(ex) ex.destroy();
+  if(state.periods.length<2){const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);ctx.font='14px Poppins';ctx.fillStyle='#C9A8B8';ctx.textAlign='center';ctx.fillText('Log 2+ periods to see your cycle chart',canvas.width/2,80);return;}
+  const lengths=[],labels=[];
+  for(let i=1;i<state.periods.length;i++){lengths.push(Math.round((new Date(state.periods[i].start)-new Date(state.periods[i-1].start))/86400000));labels.push(formatDate(state.periods[i].start));}
+  new Chart(canvas,{type:'line',data:{labels,datasets:[{label:'Cycle Length (days)',data:lengths,borderColor:'#C0395F',backgroundColor:'rgba(192,57,95,0.12)',borderWidth:2.5,pointBackgroundColor:'#C0395F',pointRadius:5,fill:true,tension:0.4}]},options:{responsive:true,plugins:{legend:{labels:{font:{family:'Poppins',size:12},color:'#8B2252'}}},scales:{x:{ticks:{font:{family:'Poppins',size:11},color:'#C9A8B8'},grid:{color:'rgba(192,57,95,0.08)'}},y:{ticks:{font:{family:'Poppins',size:11},color:'#C9A8B8'},grid:{color:'rgba(192,57,95,0.08)'},min:20,max:40}}}});
+}
+
+function showCondition(key,btn){
+  document.querySelectorAll('.cond-tab-btn').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active');
+  const c=CONDITIONS[key]; if(!c) return;
+  document.getElementById('condition-content').innerHTML=`
+    <div class="card condition-card">
+      <div class="cond-header" style="--cc:${c.color}20;--cb:${c.color}">
+        <div class="cond-title-row"><span class="cond-big-emoji">${c.emoji}</span><div><h2 class="cond-name">${c.name}</h2><p class="cond-full">${c.full}</p></div></div>
+        <div class="cond-note-badge">${c.note}</div>
+      </div>
+      <div class="cond-body">
+        <div class="cond-section"><h4>What is it?</h4><p>${c.overview}</p></div>
+        <div class="cond-grid-3">
+          <div class="cond-col symptoms-col"><h4>Symptoms</h4><ul>${c.symptoms.map(s=>`<li>${s}</li>`).join('')}</ul></div>
+          <div class="cond-col eat-col"><h4>What to eat</h4><ul>${c.eat.map(s=>`<li>${s}</li>`).join('')}</ul></div>
+          <div class="cond-col avoid-col"><h4>What to avoid</h4><ul>${c.avoid.map(s=>`<li>${s}</li>`).join('')}</ul></div>
+        </div>
+        <div class="cond-section tips-section"><h4> Lifestyle Tips</h4><div class="tips-grid">${c.tips.map(t=>`<div class="tip-chip">${t}</div>`).join('')}</div></div>
+      </div>
+    </div>`;
+}
+
+function renderUserConditionsBanner(){
+  const el=document.getElementById('user-conditions-banner'); if(!el) return;
+  const conds=(state.user.conditions||[]).filter(c=>c!=='None');
+  el.innerHTML=conds.length
+    ?`<div class="banner highlight">🩺 Based on your profile: <strong>${conds.join(', ')}</strong>. We've highlighted relevant guides for you below.</div>`
+    :`<div class="banner info">💡 You haven't logged any conditions — browse the guides below to stay informed. Knowledge is power!</div>`;
+}
+
+function renderBlogs(){
+  const grid=document.getElementById('blog-grid'); if(!grid) return;
+  grid.innerHTML=BLOGS.map(b=>`<div class="blog-card" onclick="alert('Full article coming soon! ')"><div class="blog-emoji">${b.emoji}</div><div class="blog-tag">${b.tag}</div><h4 class="blog-title">${b.title}</h4><p class="blog-preview">${b.preview}</p><div class="blog-footer">${b.mins} min read →</div></div>`).join('');
+}
+
+function showProfileModal(){
+  const u=state.user;
+  document.getElementById('profile-content').innerHTML=`
+    <div class="profile-avatar">${u.name[0].toUpperCase()}</div>
+    <div class="profile-name">${u.name}</div>
+    <div class="profile-email">${u.email}</div>
+    <div class="profile-grid">
+      ${u.age?`<div class="profile-item"><span class="prof-label">Age</span><span>${u.age} yrs</span></div>`:''}
+      ${u.height?`<div class="profile-item"><span class="prof-label">Height</span><span>${u.height} cm</span></div>`:''}
+      ${u.weight?`<div class="profile-item"><span class="prof-label">Weight</span><span>${u.weight} kg</span></div>`:''}
+      ${u.cycleLen?`<div class="profile-item"><span class="prof-label">Avg Cycle</span><span>${u.cycleLen} days</span></div>`:''}
+    </div>
+    ${u.conditions&&u.conditions.length?`<div class="profile-conds"><span class="prof-label">Health Conditions:</span><br>${u.conditions.map(c=>`<span class="stag" style="margin:3px">${c}</span>`).join(' ')}</div>`:''}
+    ${u.notes?`<p class="prof-notes">"${u.notes}"</p>`:''}
+    <button class="btn-primary" style="margin-top:1.5rem" onclick="handleLogout()">Sign Out</button>`;
+  document.getElementById('profile-modal').classList.remove('hidden');
+}
+
+function hideProfileModal(e){if(!e||e.target.id==='profile-modal') document.getElementById('profile-modal').classList.add('hidden');}
+function showContactModal(){document.getElementById('contact-modal').classList.remove('hidden');}
+function hideContactModal(e){if(!e||e.target.id==='contact-modal') document.getElementById('contact-modal').classList.add('hidden');}
+
+
+function toDateStr(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function formatDate(str){return new Date(str+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+function dateDiff(a,b){return Math.floor((new Date(b)-new Date(a))/86400000);}
+function getAvgCycle(){if(state.periods.length<2)return parseInt(state.user?.cycleLen)||28;const l=[];for(let i=1;i<state.periods.length;i++)l.push(Math.round((new Date(state.periods[i].start)-new Date(state.periods[i-1].start))/86400000));return Math.round(l.reduce((a,b)=>a+b,0)/l.length);}
+function getAvgPeriodLen(){if(!state.periods.length)return 0;return Math.round(state.periods.map(p=>dateDiff(p.start,p.end)+1).reduce((a,b)=>a+b,0)/state.periods.length);}
+function getNextPeriodDate(){if(!state.periods.length)return null;const last=state.periods[state.periods.length-1];return new Date(new Date(last.start).getTime()+getAvgCycle()*86400000);}
+function getCurrentPhase(){if(!state.periods.length)return'Unknown';const last=state.periods[state.periods.length-1],avg=getAvgCycle(),d=Math.floor((new Date()-new Date(last.start))/86400000),cd=((d%avg)+avg)%avg,pl=dateDiff(last.start,last.end)+1;if(cd<pl)return'Menstrual Phase';if(cd<13)return'Follicular Phase';if(cd<=15)return'Ovulation Phase';if(cd>=avg-5)return'Luteal / PMS Phase';return'Luteal Phase';}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  const saved=JSON.parse(localStorage.getItem('zh_current')||'null');
+  if(saved){state.user=saved;loadUserData();document.getElementById('auth-container').classList.add('hidden');document.getElementById('auth-navbar').classList.add('hidden');document.getElementById('app').classList.remove('hidden');initApp();}
+});
+</script>
+</body>
+</html>
+
+
