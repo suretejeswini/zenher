@@ -152,7 +152,7 @@ function getNextPeriodDate(periods, user) {
   return new Date(new Date(last.start).getTime() + getAvgCycle(periods, user)*86400000);
 }
 function getCurrentPhase(periods, user) {
-  if (!periods.length) return 'Unknown';
+  if (!periods.length) return 'Log your first period';
   const last = periods[periods.length-1];
   const avg = getAvgCycle(periods, user);
   const d = Math.floor((new Date() - new Date(last.start)) / 86400000);
