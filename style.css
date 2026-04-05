@@ -19,11 +19,9 @@ html { scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--dark-plum); min-height: 100vh; font-size: 15px; line-height: 1.6; }
 .hidden { display: none !important; }
 
-/* ===== LOGO ===== */
 .logo-zen { font-family: 'Dancing Script', cursive; font-weight: 700; color: var(--mulberry); }
 .logo-her { font-family: 'Dancing Script', cursive; font-weight: 700; color: var(--cranberry); }
 
-/* ===== TOP NAVBAR (auth) ===== */
 .top-navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(253,245,248,0.95); backdrop-filter: blur(12px);
