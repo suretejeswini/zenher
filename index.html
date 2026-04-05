@@ -68,12 +68,12 @@ const CONDITIONS = {
 };
 
 const BLOGS = [
-  { title: 'Why your period is your 5th vital sign', tag: 'Cycle Health', emoji: '🩸', preview: 'Your menstrual cycle reveals so much about your overall health. Doctors are now calling it the fifth vital sign...', mins: 4 },
-  { title: 'Seed cycling: does it actually work for hormones?', tag: 'Nutrition', emoji: '🌱', preview: "Eating specific seeds during different cycle phases to support hormone balance. Here's what the science says...", mins: 5 },
-  { title: 'The luteal phase slump and how to beat it', tag: 'Wellness', emoji: '😔', preview: "That week before your period when everything feels harder? That's the luteal phase — and there are ways to work with it...", mins: 6 },
-  { title: 'Iron, periods, and why Indian women are at risk', tag: 'Nutrition', emoji: '🫀', preview: 'Nearly half of Indian women are anaemic. Heavy periods, poor diet, and lack of awareness all play a role...', mins: 5 },
-  { title: 'How stress literally stops your period', tag: 'Mind & Body', emoji: '🧠', preview: 'Hypothalamic amenorrhoea — or stress-induced missing periods — is more common than you think...', mins: 7 },
-  { title: 'PCOS vs PCOD: the real differences explained', tag: 'Conditions', emoji: '🔬', preview: "These two terms get used interchangeably all the time — but they're not the same condition at all...", mins: 5 },
+  { title: 'Why your period is your 5th vital sign', tag: 'Cycle Health', emoji: '', preview: 'Your menstrual cycle reveals so much about your overall health. Doctors are now calling it the fifth vital sign...', mins: 4 },
+  { title: 'Seed cycling: does it actually work for hormones?', tag: 'Nutrition', emoji: '', preview: "Eating specific seeds during different cycle phases to support hormone balance. Here's what the science says...", mins: 5 },
+  { title: 'The luteal phase slump and how to beat it', tag: 'Wellness', emoji: '', preview: "That week before your period when everything feels harder? That's the luteal phase — and there are ways to work with it...", mins: 6 },
+  { title: 'Iron, periods, and why Indian women are at risk', tag: 'Nutrition', emoji: '', preview: 'Nearly half of Indian women are anaemic. Heavy periods, poor diet, and lack of awareness all play a role...', mins: 5 },
+  { title: 'How stress literally stops your period', tag: 'Mind & Body', emoji: '', preview: 'Hypothalamic amenorrhoea — or stress-induced missing periods — is more common than you think...', mins: 7 },
+  { title: 'PCOS vs PCOD: the real differences explained', tag: 'Conditions', emoji: '', preview: "These two terms get used interchangeably all the time — but they're not the same condition at all...", mins: 5 },
 ];
 
 const MOODS = [
@@ -444,7 +444,7 @@ function Calendar({ periods, user, onPeriodChange }) {
 
   const selDs = selectedDay ? `${year}-${String(month+1).padStart(2,'0')}-${String(selectedDay).padStart(2,'0')}` : null;
   const selPhase = selDs ? getDayPhase(selDs, periods, user) : null;
-  const phaseLabels = { period:'🩸 Period day', fertile:'🌸 Fertile window', ovulation:'⭐ Ovulation', pms:'😔 PMS zone' };
+  const phaseLabels = { period:'Period day', fertile:'Fertile window', ovulation:'Ovulation', pms:'PMS zone' };
   const phaseInfo = { period:'Your body is shedding the uterine lining. Rest, warmth, and hydration help.', fertile:'Your estrogen is rising. You may feel more social and energetic.', ovulation:'Peak fertility! You may feel your best — confident, energetic, and social.', pms:'Progesterone is dropping. Be extra gentle with yourself.' };
 
   return (
@@ -491,11 +491,11 @@ function Calendar({ periods, user, onPeriodChange }) {
         <div className="day-detail open">
           <div className="detail-header">
             <strong>{new Date(selDs+'T00:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}</strong>
-            <span className={`detail-phase ${selPhase||''}`}>{phaseLabels[selPhase] || '📆 Regular day'}</span>
+            <span className={`detail-phase ${selPhase||''}`}>{phaseLabels[selPhase] || 'Regular day'}</span>
           </div>
           {isPeriodDay(selDs)
             ? <div className="detail-period-tag">Period logged ✓ <button className="btn-sm" onClick={()=>removeDay(selDs)}>Remove</button></div>
-            : <div className="detail-actions"><button className="btn-sm" onClick={()=>quickLog(selDs)}>🩸 Mark as Period Day</button></div>
+            : <div className="detail-actions"><button className="btn-sm" onClick={()=>quickLog(selDs)}>Mark as Period Day</button></div>
           }
           {selPhase && <p style={{fontSize:'13px',color:'#C9A8B8',marginTop:'8px'}}>{phaseInfo[selPhase]}</p>}
         </div>
@@ -503,8 +503,8 @@ function Calendar({ periods, user, onPeriodChange }) {
 
       <div className="period-countdown">
         {daysLeft === null ? null
-          : daysLeft <= 0 ? <span className="countdown-badge period">🩸 Your period may have started</span>
-          : daysLeft <= 10 ? <span className="countdown-badge warning">🔔 Period in <strong>{daysLeft}</strong> days</span>
+          : daysLeft <= 0 ? <span className="countdown-badge period">Your period may have started</span>
+          : daysLeft <= 10 ? <span className="countdown-badge warning">Period in <strong>{daysLeft}</strong> days</span>
           : <span className="countdown-badge calm">📅 Next period in <strong>{daysLeft}</strong> days</span>}
       </div>
     </div>
@@ -807,20 +807,20 @@ function ConditionCard({ cond }) {
         <div className="cond-section"><h4>What is it?</h4><p>{cond.overview}</p></div>
         <div className="cond-grid-3">
           <div className="cond-col symptoms-col">
-            <h4>⚠️ Symptoms</h4>
+            <h4>Symptoms</h4>
             <ul>{cond.symptoms.map(s => <li key={s}>{s}</li>)}</ul>
           </div>
           <div className="cond-col eat-col">
-            <h4>✅ What to eat</h4>
+            <h4>What to eat</h4>
             <ul>{cond.eat.map(s => <li key={s}>{s}</li>)}</ul>
           </div>
           <div className="cond-col avoid-col">
-            <h4>❌ What to avoid</h4>
+            <h4>What to avoid</h4>
             <ul>{cond.avoid.map(s => <li key={s}>{s}</li>)}</ul>
           </div>
         </div>
         <div className="cond-section tips-section">
-          <h4>💡 Lifestyle Tips</h4>
+          <h4>Lifestyle Tips</h4>
           <div className="tips-grid">{cond.tips.map(t => <div key={t} className="tip-chip">{t}</div>)}</div>
         </div>
       </div>
@@ -839,8 +839,8 @@ function HealthHubTab({ user }) {
       <p className="tab-subtitle">Whether you have a diagnosis or just want to be informed — this space is for everyone.</p>
 
       {userConds.length > 0
-        ? <div className="banner highlight">🩺 Based on your profile: <strong>{userConds.join(', ')}</strong>. We've highlighted relevant guides below.</div>
-        : <div className="banner info">💡 You haven't logged any conditions — browse the guides below to stay informed. Knowledge is power!</div>
+        ? <div className="banner highlight">Based on your profile: <strong>{userConds.join(', ')}</strong>. We've highlighted relevant guides below.</div>
+        : <div className="banner info">You haven't logged any conditions — browse the guides below to stay informed. Knowledge is power!</div>
       }
 
       <div className="conditions-tabs">
@@ -854,7 +854,7 @@ function HealthHubTab({ user }) {
       <ConditionCard cond={CONDITIONS[activeKey]} />
 
       <div className="card" style={{marginTop:'1.5rem'}}>
-        <div className="card-header"><h3>📖 ZenHer Reads — Women's Health Blogs</h3></div>
+        <div className="card-header"><h3>ZenHer Reads — Women's Health Blogs</h3></div>
         <div className="blog-grid">
           {BLOGS.map((b,i) => (
             <div key={i} className="blog-card" onClick={()=>alert('Full article coming soon! 📖')}>
