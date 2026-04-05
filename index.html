@@ -290,8 +290,8 @@ function LandingPage({ onGoSignup, onGoLogin }) {
           <div className="section-tag">Get in touch</div>
           <h2 className="section-title">Contact Us</h2>
           <div className="contact-grid">
-            <div className="contact-item"><span>Sure Tejesiwni-sure.tejeswini2024@vitstudent.ac.in-8595964012</span></div>
-             <div className="contact-item"><span>Avishi Sharma-avishi.sharma2024@vitstudent.ac.in-9870561369</span></div>
+            <div className="contact-item">📧 <span>Sure Tejesiwni-sure.tejeswini2024@vitstudent.ac.in-8595964012</span></div>
+             <div className="contact-item">📧 <span>Avishi Sharma-avishi.sharma2024@vitstudent.ac.in-9870561369</span></div>
   
           </div>
           <div className="auth-card inline-card" style={{ marginTop: '1.5rem' }}>
@@ -305,6 +305,7 @@ function LandingPage({ onGoSignup, onGoLogin }) {
       <footer className="landing-footer">
         <div className="footer-logo"><Logo size="2.8rem" /></div>
         <p>Made with love for women everywhere.</p>
+        <p className="footer-small">© 2025 ZenHer. All rights reserved. Your data never leaves your device.</p>
       </footer>
     </div>
   );
@@ -375,10 +376,10 @@ function SignupPage({ onLogin, onGoLogin }) {
         <div className="signup-logo"><Logo size="4rem" /></div>
         <p className="signup-tagline">Your wellness journey starts here.</p>
         <ul className="signup-perks">
-          <li>Period &amp; cycle tracking</li>
-          <li>Mood &amp; symptom logging</li>
-          <li>Health condition guides</li>
-          <li>100% private, on-device</li>
+          <li>✓ Period &amp; cycle tracking</li>
+          <li>✓ Mood &amp; symptom logging</li>
+          <li>✓ Health condition guides</li>
+          <li>✓ 100% private, on-device</li>
         </ul>
       </div>
       <div className="signup-right">
@@ -724,7 +725,7 @@ function SymptomsTab({ symptoms, onSymptomsChange }) {
     if (!date) { setMsg('error:Please select a date.'); return; }
     onSymptomsChange([...symptoms, { date, symptoms: [...selected], notes }]);
     setSelected(new Set()); setNotes('');
-    setMsg('success:Symptoms saved!');
+    setMsg('success:Symptoms saved! ✓');
     setTimeout(() => setMsg(''), 3000);
   };
 
@@ -943,11 +944,11 @@ function ContactModal({ onClose }) {
       <div className="modal-card">
         <div className="modal-header"><h3>Contact Us</h3><button className="modal-close" onClick={onClose}>✕</button></div>
         <div className="contact-grid" style={{marginBottom:'1rem'}}>
-           <div className="contact-item"><span>Sure Tejesiwni-sure.tejeswini2024@vitstudent.ac.in-8595964012</span></div>
-             <div className="contact-item"><span>Avishi Sharma-avishi.sharma2024@vitstudent.ac.in-9870561369</span></div>>
+           <div className="contact-item">📧 <span>Sure Tejesiwni-sure.tejeswini2024@vitstudent.ac.in-8595964012</span></div>
+             <div className="contact-item">📧 <span>Avishi Sharma-avishi.sharma2024@vitstudent.ac.in-9870561369</span></div>>
         </div>
         <div className="form-group"><label>Your message</label><textarea rows="4" placeholder="Write to us..."></textarea></div>
-        <button className="btn-primary" onClick={() => { alert('Sent! '); onClose(); }}>Send Message</button>
+        <button className="btn-primary" onClick={() => { alert('Sent! 💌'); onClose(); }}>Send Message</button>
       </div>
     </div>
   );
