@@ -38,12 +38,13 @@ JavaScript
 Chart.js (for analytics)
 GitHub Pages (deployment)
 Folder Structure
+-----------------
 ZenHer
 │
 ├── index.html
 ├── style.css
-├── app.js
 └── README.md
+----------------
 How to Run Locally
 Download project files
 Keep all files in same folder
